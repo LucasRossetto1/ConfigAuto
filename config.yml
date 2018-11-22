@@ -1,0 +1,12 @@
+// à configurer
+
+version: 3
+
+db:
+  location: database name
+  login: database login
+  mdp: databse mdp
+  host:
+  port:
+  pathsh:
+  pathsql:
