@@ -1,11 +1,15 @@
 <?php
 
+$path_parts_src = pathinfo('/src');
+
+$path_parts = pathinfo('./');
+
      if(file_exists('config.yml')){
 
         if(file_exists('backupscript.json')){
 
-           if(file_exists('.sh')){
-              
+           if(file_exists($path_parts['filename'].'.sh')){
+
            }
            else
            {
