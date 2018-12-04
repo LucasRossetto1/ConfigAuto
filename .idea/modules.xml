@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/drushInstall.iml" filepath="$PROJECT_DIR$/.idea/drushInstall.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projetConfi.iml" filepath="$PROJECT_DIR$/.idea/projetConfi.iml" />
     </modules>
   </component>

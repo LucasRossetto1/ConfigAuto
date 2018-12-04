@@ -1,0 +1,7 @@
+/* à configurer {
+  "scripts": {
+    "drush": [
+      "./script.sh"
+    ]
+  }
+}*/
