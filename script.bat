@@ -1,12 +1,13 @@
-rem Ficher .bat pour windows
+rem Ficher bat pour windows
 
 rem A modifier selon le projet !
 rem Se mettre à la racine du projet !
 
-DOSKEY drush = ".\vendor\bin\drush"
+rem ATTENTION ! Lancer ce script avec le git bash ! Ne fonctionne pas en powershell.
+rem Remplacer <username> par le nom d'utilisateur.
 
-drush make config/drush/skeleton.make C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer && cp -r C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer/* src
-   del /f /s /q C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer
+   drush make config/drush/skeleton.make C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer && cp -r C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer/* src
+   rm -rf C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer
 
 rem Executer la commande ci-dessous depuis le répertoire « src » dans console (Prerequis drush 8):
    cd ./src

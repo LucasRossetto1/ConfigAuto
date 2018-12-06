@@ -24,7 +24,7 @@ if(file_exists('config.yml')){
 
     if (DIRECTORY_SEPARATOR == '\\') {
       if (file_exists('script.bat')){
-        system('./script.bat 2>&1', $retval);
+        system('script.bat 2>&1', $retval);
         echo $retval;
       }
       else
