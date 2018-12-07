@@ -10,3 +10,6 @@
 #  port:
 #  pathsh:
 #  pathsql:
+
+bash:
+  alias: "/var/www/html/hospiway/vendor/bin/drush"

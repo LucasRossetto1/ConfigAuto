@@ -3,9 +3,6 @@
 #A modifier selon le projet !
 #Se mettre à la racine du projet !
 
-alias drush="./vendor/bin/drush"
-
-
 drush make config/drush/skeleton.make /tmp/drupal-installer && cp -r /tmp/drupal-installer/* src
    rm -rf /tmp/drupal-installer
 

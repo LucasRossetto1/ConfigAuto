@@ -4,10 +4,10 @@ rem A modifier selon le projet !
 rem Se mettre à la racine du projet !
 
 rem ATTENTION ! Lancer ce script avec le git bash ! Ne fonctionne pas en powershell.
-rem Remplacer <username> par le nom d'utilisateur.
+rem Ne pas oublier de déclarer drush en tant que variiable d'environnement.
 
-   drush make config/drush/skeleton.make C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer && cp -r C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer/* src
-   rm -rf C:/Utilisateurs/<username>/AppData/Local/Temp/drupal-installer
+   drush make config/drush/skeleton.make C:/Utilisateurs/%USERNAME%/AppData/Local/Temp/drupal-installer && cp -r C:/Utilisateurs/%USERNAME%/AppData/Local/Temp/drupal-installer/* src
+   rm -rf C:/Utilisateurs/%USERNAME%/AppData/Local/Temp/drupal-installer
 
 rem Executer la commande ci-dessous depuis le répertoire « src » dans console (Prerequis drush 8):
    cd ./src
