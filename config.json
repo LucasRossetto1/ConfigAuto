@@ -11,16 +11,15 @@
     "port": ""
   },
 
-  "path": [{
+  "path": {
+    "pathTxt": "/var/www/html/drushInstall/",
     "pathSQL": "",
     "pathSH": "",
     "pathBAT": ""
-  }],
+  },
 
-  "scripts": {
-    "drush": {
-      "params": "/var/www/html/drushInstall/vendor/bin/drush",
-      "filename": "toto"
-    }
-  }
+  "scripts": [{
+    "params": "/var/www/html/drushInstall/vendor/bin/drush",
+    "filename": "/var/www/html/drushInstall/script.sh"
+  }]
 }

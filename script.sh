@@ -18,3 +18,5 @@
    $1 -y fr hpw_directory_paragraph_feature
    $1 -y fr hpw_checklist_paragraph_feature
    $1 -y fr hpw_palmares_paragraph_feature
+
+$2
