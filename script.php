@@ -2,16 +2,10 @@
 
 $json = file_get_contents("config.json");
 $parsed_json = json_decode($json, true);
-
-//Ce fichier output permet de répertorier les différents scripts lancés et ainsi
-//d'afficher ceux qui ont fonctionner. Si vous voulez relancez les scripts déjà
-//lancés correctement , videz le fichier output.txt.
 $file = 'output.txt';
 
 //Ce script doit figurer dans un dossier ou se situe les différents scripts
 //shell/batch a exécuter.
-//Les paramétres dans les scripts sh/bat doivent figurer comme-ci : $1 ,$2 ,$3 ,
-//etc... en fonction de votre configuration json(nombres de paramètres).
 
 if(file_exists('./config.json')) {
 
