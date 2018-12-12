@@ -1,12 +1,11 @@
 {
-    "name": "lucasr/drush-installer",
-    "description": "drush installer composer project",
+    "name": "autoscript/autoscript",
+    "description": "Execution de commandes automatiques",
     "authors": [
         {
             "name": "Lucas Rossetto",
-            "email": "lucas.rossetto@hardis.fr"
+            "email": "lucas.rossetto@hardis.fr",
+            "role": "Developer"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+    ]
 }
