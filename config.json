@@ -1,23 +1,4 @@
 {
-  "BD": {
-    "nomBD": "122",
-    "mdpBD": "",
-    "loginBD": "",
-    "portBD": ""
-  },
-
-  "serveur": {
-    "host": "",
-    "port": ""
-  },
-
-  "path": {
-    "pathTxt": "/var/www/html/drushInstall/",
-    "pathSQL": "",
-    "pathSH": "",
-    "pathBAT": ""
-  },
-
   "scripts": [{
     "params": "/var/www/html/drushInstall/vendor/bin/drush",
     "filename": "/var/www/html/drushInstall/script.sh"

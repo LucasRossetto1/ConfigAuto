@@ -3,6 +3,11 @@
 $json = file_get_contents("config.json");
 $parsed_json = json_decode($json, true);
 
+//Ce fichier output permet de répertorier les différents scripts lancés et ainsi
+//d'afficher ceux qui ont fonctionner. Si vous voulez relancez les scripts déjà
+//lancés correctement , videz le fichier output.txt.
+$file = 'output.txt';
+
 //Ce script doit figurer dans un dossier ou se situe les différents scripts
 //shell/batch a exécuter.
 //Les paramétres dans les scripts sh/bat doivent figurer comme-ci : $1 ,$2 ,$3 ,
@@ -12,14 +17,31 @@ if(file_exists('./config.json')) {
 
   $scripts = $parsed_json['scripts'];
   $path = $parsed_json['path'];
+  $test = explode("\n", file_get_contents($file));
+
+  //Si les scripts sont des scripts bash linux.
 
   if (DIRECTORY_SEPARATOR == '/') {
 
     if (count($scripts) > 0) {
 
       foreach ($scripts as $script) {
-        system($script['filename'] . ' ' . $script['params'], $retval);
-        echo $retval;
+
+        if(!in_array($script['filename'] , $test)) {
+
+          system($script['filename'] . ' ' . $script['params'], $retval);
+
+          if( $retval == 0 ){
+
+            file_put_contents($file, $script['filename'] . "\n", FILE_APPEND);
+
+          } else {
+
+            echo "====== Le script ne s'est pas terminé correctement. ======= \n";
+
+            break;
+          }
+        }
       }
     }
 
@@ -28,13 +50,29 @@ if(file_exists('./config.json')) {
     }
   }
 
+  //Si les scripts sont des scripts bat windows.
+
   if (DIRECTORY_SEPARATOR == '\\') {
 
     if (count($scripts) > 0) {
 
       foreach ($scripts as $script) {
-        system($script['filename'] . ' ' . $script['params'], $retval);
-        echo $retval;
+
+        if(!in_array($script['filename'] , $test)) {
+
+          system($script['filename'] . ' ' . $script['params'], $retval);
+
+          if( $retval == 0 ){
+
+            file_put_contents($file, $script['filename'] . "\n", FILE_APPEND);
+
+          } else {
+
+            echo "====== Le script ne s'est pas terminé correctement. ======= \n";
+            break;
+
+          }
+        }
       }
     }
 
@@ -42,54 +80,6 @@ if(file_exists('./config.json')) {
       echo "Le fichier .bat est manquant ou n'a pas été trouvé.";
     }
   }
-
-
-  //Ecrit dans un nouveau fichier si non-défini dans le config json
-  foreach ($scripts as $script) {
-    file_put_contents( $path['pathTxt'], $script['filename']);
-  }
-
-  function files_are_equal($a, $b)
-  {
-    // Check if filesize is different
-    //if(filesize($a) !== filesize($b))
-    //return false;
-
-    // Check if content is different
-    $ah = fopen($a, 'rb');
-    $bh = fopen($b, 'rb');
-
-    $result = true;
-    while(!feof($ah))
-    {
-      if(fread($ah, 8192) != fread($bh, 8192))
-      {
-        $result = false;
-        break;
-      }
-    }
-
-    fclose($ah);
-    fclose($bh);
-
-    return $result;
-  }
-
-  //Ecrire une fonction qui permet d'executer les commandes non executées dans
-  //le script executé grâce à la comparaison avec le nouveau fichier d'export.
-
-  $file = fopen('online.txt', 'w+');
-
-  $sh=file_get_contents($scripts['filename'])
-  or die("Error: Cannot create object");
-  foreach($sh->children() as $screenname)
-  {
-    $nick =  $screenname->screenname;
-    fwrite($file, $nick.PHP_EOL);
-  }
-  fclose($file);
-
-
 
 }
 else
