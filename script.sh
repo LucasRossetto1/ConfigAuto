@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #A modifier selon le projet !
-#Se mettre à la racine du projet !
+#Ce script est utilisé à terme d'exemple , veuillez remplacer le contenu par votre propre script.
 
    $1 make config/drush/skeleton.make /tmp/drupal-installer && cp -r /tmp/drupal-installer/* src &&
    rm -rf /tmp/drupal-installer &&
